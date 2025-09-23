@@ -75,8 +75,12 @@ jobs:
             --repo "${GITHUB_REPOSITORY}"
           )"
 
+          echo "${ISSUES}" | jq . || { echo "ERROR: Output is not valid JSON"; exit 1; }
+
           echo '📝 Setting output for GitHub Actions...'
-          echo "issues_to_triage=${ISSUES}" >> "${GITHUB_OUTPUT}"
+          echo "issues_to_triage<<EOF" >> "${GITHUB_OUTPUT}"
+          echo "${ISSUES}" >> "${GITHUB_OUTPUT}"
+          echo "EOF" >> "${GITHUB_OUTPUT}"
 
           ISSUE_COUNT="$(echo "${ISSUES}" | jq 'length')"
           echo "✅ Found ${ISSUE_COUNT} issue(s) to triage! 🎯"
