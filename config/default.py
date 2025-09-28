@@ -103,6 +103,7 @@ class Default:
     VEO_EXP_PROJECT_ID: str = os.environ.get("VEO_EXP_PROJECT_ID", PROJECT_ID)
 
     # VTO
+    VTO_LOCATION: str = os.environ.get("VTO_LOCATION", "us-central1")
     VTO_MODEL_ID: str = os.environ.get("VTO_MODEL_ID", "virtual-try-on-preview-08-04")
     GENMEDIA_VTO_MODEL_COLLECTION_NAME: str = os.environ.get(
         "GENMEDIA_VTO_MODEL_COLLECTION_NAME", "genmedia-vto-model"

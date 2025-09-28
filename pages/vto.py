@@ -185,10 +185,10 @@ def on_generate(e: me.ClickEvent):
     generated_uris = []
     try:
         generated_uris = generate_vto_image(
-            state.person_image_gcs,
-            state.product_image_gcs,
-            state.vto_sample_count,
-            state.vto_base_steps,
+            person_gcs_url=state.person_image_gcs,
+            product_gcs_url=state.product_image_gcs,
+            sample_count=state.vto_sample_count,
+            base_steps=state.vto_base_steps,
         )
         state.result_gcs_uris = generated_uris
         add_media_item(
